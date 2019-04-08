@@ -1,0 +1,234 @@
+// Import Google Font - Raleway 300 & 700
+// @import url("https://fonts.googleapis.com/css?family=Raleway:300,700");
+@import url("https://fonts.googleapis.com/css?family=Bilbo+Swash+Caps");
+// ===================
+// Font and color variables
+// ===================
+
+// Fonts
+$sans-serif: "Raleway", sans-serif;
+$script-font: "Bilbo Swash Caps", cursive;
+$font-light: 300;
+$font-bold: 700;
+
+// Colors
+$black: rgba(0, 0, 0, 1);
+$dark-gray: #292323;
+$medium-gray: #737373;
+$light-gray: #c4c4c4;
+$blue: #2029a7;
+
+// Semantic color names
+$accent: $blue;
+
+$body-background: $black;
+$menu-background: $black;
+
+$main-font-color: $light-gray;
+$menu-active-color: $light-gray;
+$menu-font-color: $medium-gray;
+$link-color: $accent;
+
+// Breakpoints
+$singleColumnBreakpoint: 500px;
+
+// ===================
+// General styles
+// ===================
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $body-background;
+  color: $main-font-color;
+  font-family: $sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  display: block;
+}
+
+// ===================
+// Navigation
+// ===================
+
+.sidebar {
+  background: $menu-background;
+  // flex: 1 1 100%;
+  // min-width: 300px;
+  padding: 25px;
+  display: block;
+}
+
+.logo {
+  height: 350px;
+  color: white;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./images/domwes.jpg);
+  font-family: "Bilbo Swash Caps", cursive;
+  text-align: center;
+  font-size: 5em;
+  background-size: cover;
+  background-position: 50% 29%;
+  background-repeat: no-repeat;
+
+  span {
+    font-weight: $font-bold;
+  }
+}
+
+// ===================
+// Main Content area
+// ===================
+
+.main-content {
+  padding: 20px;
+  //flex: 1 1 100%;
+  // min-height: 100vh;
+  height: 1500px;
+}
+
+// ===================
+// Portfolio
+// ===================
+
+.portfolio {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+
+  @media only screen and (max-width: $singleColumnBreakpoint) {
+    grid-template-rows: repeat(12, 1fr);
+  }
+}
+
+.portfolio-item {
+  background: $accent;
+  color: $light-gray;
+  font-weight: $font-bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Refractored the code a little from the video.
+  // Moved these from the .two, thought it made
+  // more sense like this.
+  font-size: 1.5em;
+  background-size: cover;
+  background-position: top left;
+  transition: all ease-in-out 300ms;
+  position: relative;
+  z-index: 10;
+
+  > a {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+  }
+
+  &.small {
+    grid-row: span 3;
+    grid-column: span 1;
+
+    @media only screen and (max-width: $singleColumnBreakpoint) {
+      grid-row: span 2;
+      grid-column: span 5;
+    }
+  }
+
+  &.medium {
+    grid-row: span 2;
+    grid-column: span 2;
+
+    @media only screen and (max-width: $singleColumnBreakpoint) {
+      grid-row: span 2;
+      grid-column: span 5;
+    }
+  }
+
+  &.large {
+    grid-row: span 3;
+    grid-column: span 3;
+
+    @media only screen and (max-width: $singleColumnBreakpoint) {
+      grid-row: span 2;
+      grid-column: span 5;
+    }
+  }
+
+  &.tall {
+    grid-row: span 3;
+    grid-column: span 2;
+
+    @media only screen and (max-width: $singleColumnBreakpoint) {
+      grid-row: span 2;
+      grid-column: span 5;
+    }
+  }
+
+  &.wide {
+    grid-row: span 2;
+    grid-column: span 2;
+
+    @media only screen and (max-width: $singleColumnBreakpoint) {
+      grid-row: span 2;
+      grid-column: span 5;
+    }
+  }
+
+  &:hover {
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.85);
+  }
+}
+
+.thumbnail {
+  display: "block";
+  float: "left";
+  line-height: 0;
+  overflow: "hidden";
+}
+
+// orientation
+.landscape {
+  width: "30%";
+}
+
+.square {
+  padding-bottom: 0;
+  width: "40%";
+}
+
+// actual <img />
+.source {
+  border: 0;
+  display: "block";
+  height: "auto";
+  max-width: "100%";
+  width: "auto";
+}
+
+// .two {
+//   background-image: url(//unsplash.it/800/600);
+
+//   &::before {
+//     content: "";
+//     display: block;
+//     background: $black;
+//     opacity: 0.8;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     transition: all ease-in-out 300ms;
+//     z-index: -1;
+//   }
+
+//   &:hover::before {
+//     opacity: 0.2;
+//   }
+// }
